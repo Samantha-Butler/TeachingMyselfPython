@@ -1,6 +1,6 @@
 # Hello Aspiring Python Developer! 
 I myself, have *also* began the journey of learning Python to help introduce me into the tech industry. 
-
+ 
 ## What will you find here?
 This repository is a way to document my Python learning and create "cheat sheets" and activities to deepen my own (*and maybe your own*) learning. I have the mindset of a teacher and like to break up the learning into small chunks and create opportunities to practise them before adding onto this foundation. It is very easy to copy and paste but by organising different ways to format the activities, I believe we'll have a better grasp at performing Python commands in no time! (Even if it is just outputting different print statements!).
 
