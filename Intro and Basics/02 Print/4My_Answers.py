@@ -23,3 +23,8 @@ print(55-26)
 #6. Use a range of arithmetic operations and see how Python utilises BODMAS
 
 print(3 + 5 * 10)
+
+
+
+#7. Why won't this print properly? print('What is happening here?)
+#Within the print, there is only one open quotation mark, no closing one. It should be print('What is happening here') or print("What is happening here")

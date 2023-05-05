@@ -24,4 +24,9 @@
 
 
 
+
+#7. Why won't this print properly? print('What is happening here)
+
+
+
 #Well done for completing basics of printing! Once we explore sections 3-8, there will be more advanced actions for printing. 
