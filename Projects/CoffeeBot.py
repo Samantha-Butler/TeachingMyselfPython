@@ -6,11 +6,11 @@ def coffee_bot():
   drink_type = get_drink_type()
   print(f"Alright, that's a {size} {drink_type}!")
 
-  name = input("Can I get your name please? \n ")
+  name = input("Can I get your name please? \n")
   print(f"Thanks, {name}! Your drink will be ready shortly.")
 
 def get_size():
-  res = input("What size drink can I get for you? \n[a] Small \n[b] Medium \n[c] Large \n ")
+  res = input("What size drink can I get for you? \n[a] Small \n[b] Medium \n[c] Large \n")
   
   if res == "a":
     return "Small"
@@ -34,7 +34,7 @@ def get_drink_type():
     return get_drink_type()
 
 def order_latte():
-  res = input("And what kind of milk for your latte? \n[a] 2% Milk \n[b] Non-fat milk \n[c] Soy Milk")
+  res = input("And what kind of milk for your latte? \n[a] 2% Milk \n[b] Non-fat milk \n[c] Soy Milk \n")
   
   if res == "a":
     return "2% Milk"
