@@ -9,6 +9,12 @@ O  = '\033[33m' # orange
 B  = '\033[34m' # blue
 P  = '\033[35m' # purple
 
+# Colour Coding
+# 
+# Purple = Story
+# Green = Options
+# White = Player Input
+# Orange = Game Instructions/Help
 
 # Title Screen
 print("Welcome to the Nether Isle RPG")
@@ -123,6 +129,12 @@ class Ranger:
             print(R+"\nSorry, I didn't understand your input. Please respond with 1, 2 or 3."+W)
             return self.get_weapon()
 
+# Combat Instructions. Can be called anytime from room 5 onward
+
+def combat_instructions():
+    print(O+"The combat in this game operates with random number commands, not dissimilar to the dice rolls of Dungeons and Dragons. From here on, we will refer to the calling of these commands as 'dice rolls'.\n")
+    print("Each enemy has a HP (Health Points) value, as does the player. Each time a dice roll occurs, the result of that roll will be subtracted from the enemy, or from the player for an enemy roll.\n")
+    print("The number from the dice roll can also be affected by multiple things. Both player and enemy attacks can be buffed by items or effects. They can also by reduced by other items or effects.\n"+W)
 
 # Player Spawn
 
@@ -160,9 +172,8 @@ def room2r_door_tested():
         print(P+"You find an old, rusty key. It looks as though it might fit the lock in the tower door."+W) # Look into adding to inventory
         return room2_unlocked()
     elif res == "2":
-        print(P+"There is nothing here. You go to investigate the boulder.")
-        print(P+"You find an old, rusty key. It looks as though it might fit the lock in the tower door."+W) # Look into adding to inventory
-        return room2_unlocked()
+        print(P+"There is nothing here.")
+        return room2r_door_tested()
     else: 
         print(R+"\nSorry, I didn't understand your input. Please respond with 1 or 2.\n"+W)
         return room2r_door_tested()
@@ -176,9 +187,8 @@ def room2r_door_untested():
         print(P+"You find an old, rusty key. You wonder what it might unlock."+W) # Look into adding to inventory
         return room2_unlocked()
     elif res == "2":
-        print(P+"There is nothing here. You go to investigate the boulder.")
-        print(P+"You find an old, rusty key. You wonder what it might unlock."+W) # Look into adding to inventory
-        return room2_unlocked()
+        print(P+"There is nothing here.")
+        return room2r_door_untested()
     else: 
         print(R+"\nSorry, I didn't understand your input. Please respond with 1 or 2.\n"+W)
         return room2r_door_untested()
@@ -186,8 +196,52 @@ def room2r_door_untested():
 # Room 2 Unlocked
 
 def room2_unlocked():
-    print(R+"To be continued!"+W)
+    print(P+"You make your way out of the cave and back into the clearing. The door to the tower lies ahead of you.")
+    res = input("Would you like to try the key in the door or end your adventure here? \n" + G+ "[1] Try the door \n[2] End your adventure\n"+W)
+    if res == "1":
+        print(P+"The turn the rusty key in the lock. It's tough but it slowly turns and the door slowly creaks open."+W)
+        return room3()
+    elif res == "2":
+        exit()
+    else:
+        print(R+"\nSorry, I didn't understand your input. Please respond with 1 or 2.\n"+W)
+        return room2_unlocked()
     
+# Room 3 (Riddle)    
+
+def room3():
+    print(P+"The door opens up into a great, round stone hall. There is a spiral staircase encirlcing the wall of the tower, however the first few stairs are missing. There appears to be no way to reach them.")
+    print("As you take a step further into the room, letters start appearing in the air in front of you, as if written by an unseen hand...\n")
+    res = input("I don't have eyes, but once I did see. I once had thoughts, now white and empty.\n"+W).lower()
+    if res == "skull":
+        print(P+"As soon as the word leaves your mouth, the first few stone stairs slide out from within the wall to reveal the bottom of the staircase. Your way up the tower is now clear.\n"+W)
+        return room4()
+    else:
+        print(R+"Nothing happens"+W)
+        return room3()
+
+# Room 4
+
+def room4():
+    print(P+"About halfway up the tower, you notice a doorway, half hidden by ivy, that leads off the stairs to a small room.")
+    res = input("Would you like to investigate the hidden doorway or continue up the stairs?\n" + G+ "[1] Go through the door \n[2] Continue up the stairs\n"+W)
+    if res == "1":
+        return room4r()
+    elif res == "2":
+        return room5()
+    else:
+        print(R+"\nSorry, I didn't understand your input. Please respond with 1 or 2.\n"+W)
+        return room4()
+
+# Weapon/Buff room
+    
+def room4r():
+    print("test")
+    
+# Monster
+ 
+def room5():
+    return combat_instructions()
 
 player = Player()
 player.intro()
